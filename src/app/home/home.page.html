@@ -1,0 +1,59 @@
+<ion-content>
+
+  <div class="header">
+    <h2>Welcome👋</h2>
+    <h2>Find Your Story</h2>
+  </div>
+
+  <div class="banner">
+    <img src="assets/icon/bg-anak.jpg" class="banner-img">
+  </div>
+
+  <div class="recommend-header">
+    <div class="title">
+      <span class="line"></span>
+      <h3>RECOMMEND</h3>
+    </div>
+    <span class="see-all"><h3>See All</h3></span>
+  </div>
+
+  <div class="stories">
+    <ion-card *ngFor="let cerita of filteredStories">
+      <div class="card-content" (click)="bukaCerita(cerita)">
+        <img [src]="cerita.image" class="thumb"/>
+
+        <div class="info">
+          <h3 class="book-title">{{ cerita.title }}</h3>
+          <p class="book-subtitle">{{ cerita.category }}</p>
+        </div>
+
+        <ion-button 
+          fill="clear"
+          class="btn-fav"
+          (click)="toggleFavorite(cerita); $event.stopPropagation()">
+          <ion-icon 
+            [name]="favService.isFavorite(cerita) ? 'heart' : 'heart-outline'">
+          </ion-icon>
+        </ion-button>
+      </div>
+    </ion-card>
+
+    <div class="main-wrapper">
+      <div class="riwayat-list">
+        </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active" (click)="goHome()">
+      <ion-icon name="home"></ion-icon>
+    </div>
+    <div class="nav-item" (click)="goBook()">
+      <ion-icon name="book"></ion-icon>
+    </div>
+    <div class="nav-item" (click)="goFavorite()">
+      <ion-icon name="heart"></ion-icon>
+    </div>
+  </div>
+
+</ion-content>

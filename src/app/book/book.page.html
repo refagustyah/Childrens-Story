@@ -1,0 +1,92 @@
+<ion-content>
+
+  <div class="header">
+    <h2>Enjoy Reading</h2>
+  </div>
+
+  <div class="category-book">
+
+    <div 
+      class="cat-item" 
+      [class.active]="selectedCategory === 'all'"
+      (click)="selectedCategory='all'; filterByCategory()">
+      Semua
+    </div>
+
+    <div 
+      class="cat-item" 
+      [class.active]="selectedCategory === 'Cerita Rakyat'"
+      (click)="selectedCategory='Cerita Rakyat'; filterByCategory()">
+      Cerita Rakyat
+    </div>
+
+    <div 
+      class="cat-item" 
+      [class.active]="selectedCategory === 'Dongeng Dunia'"
+      (click)="selectedCategory='Dongeng Dunia'; filterByCategory()">
+      Dongeng Dunia
+    </div>
+
+    <div 
+      class="cat-item" 
+      [class.active]="selectedCategory === 'Fabel (Cerita Hewan)'"
+      (click)="selectedCategory='Fabel (Cerita Hewan)'; filterByCategory()">
+      Fabel
+    </div>
+
+  </div>
+
+  <ion-searchbar 
+    class="custom-search"
+    (ionInput)="filterCerita($event)" 
+    placeholder="Search for books">
+  </ion-searchbar>
+
+  <div class="book-list">
+
+    <ion-card *ngFor="let item of filteredStories">
+      
+      <div class="card-content" (click)="bukaCerita(item)">
+
+        <img [src]="item.image" class="book-img" />
+
+        <div class="book-info">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.category }}</p>
+          <span class="remaining">Tersedia</span>
+        </div>
+
+        <ion-button 
+          class="btn-fav"
+          fill="clear"
+          (click)="toggleFavorite(item); $event.stopPropagation()">
+
+          <ion-icon 
+            [name]="favService.isFavorite(item) ? 'heart' : 'heart-outline'">
+          </ion-icon>
+
+        </ion-button>
+
+      </div>
+
+    </ion-card>
+
+  </div>
+
+</ion-content>
+
+<div class="bottom-nav">
+
+  <div class="nav-item" (click)="goHome()">
+    <ion-icon name="home"></ion-icon>
+  </div>
+
+  <div class="nav-item active" (click)="goBook()">
+    <ion-icon name="book"></ion-icon>
+  </div>
+
+  <div class="nav-item" (click)="goFavorite()">
+    <ion-icon name="heart"></ion-icon>
+  </div>
+
+</div>

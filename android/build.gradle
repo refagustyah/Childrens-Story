@@ -1,0 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.1'
+        classpath 'com.google.gms:google-services:4.4.4'
+    }
+}
+
+apply from: "variables.gradle"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    // 1. SOLUSI DUPLICATE CLASS: Memaksa semua library Kotlin menggunakan satu versi utama
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.activity:activity:1.9.3'
+            force 'androidx.activity:activity-ktx:1.9.3'
+            force 'androidx.core:core:1.13.1'
+            force 'androidx.core:core-ktx:1.13.1'
+            force 'androidx.fragment:fragment:1.8.5'
+            force 'androidx.fragment:fragment-ktx:1.8.5'
+
+            // Memaksa versi Kotlin agar tidak duplikat
+            force "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
+        }
+    }
+}
+
+// 2. SOLUSI JAVA 21: Memaksa SEMUA sub-project (app & plugins) menggunakan Java 17
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_17
+                    targetCompatibility JavaVersion.VERSION_17
+                }
+                if (project.tasks.findByName('compileKotlin')) {
+                    project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+                        kotlinOptions {
+                            jvmTarget = "17"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

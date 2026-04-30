@@ -1,0 +1,335 @@
+/* 🌈 GLOBAL & RESET - Identik dengan Book */
+ion-content {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --background: #ffffff; /* Putih bersih agar card menonjol */
+  --padding-top: 1px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-bottom: 90px;
+}
+
+/* 🔒 STICKY HEADER - Posisi & Ukuran Identik dengan Book */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  padding: 10px 5px; /* Sama dengan .header di Book */
+  margin-bottom: 8px;
+}
+
+.sticky-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #4da262; /* Hijau Identik */
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* 📚 LIST CONTAINER */
+.stories {
+  width: 100%;
+}
+
+ion-grid {
+  padding: 0;
+}
+
+ion-row {
+  padding: 0;
+}
+
+ion-col {
+  padding: 0;
+}
+
+/* 📦 CARD & CONTENT - Ukuran disamakan dengan Book */
+ion-card {
+  border-radius: 15px;
+  margin: 0 0 10px 0 !important;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: none;
+}
+
+/* Mengatur isi item di dalam card agar sejajar */
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  --background: transparent;
+  --border-style: none;
+  --min-height: 105px; /* Menyesuaikan tinggi card di halaman Book */
+}
+
+/* 🖼️ THUMBNAIL - Ukuran 65x85 sesuai CSS Book kamu */
+ion-thumbnail {
+  width: 65px !important;
+  height: 85px !important;
+  --border-radius: 10px;
+  margin: 10px 0;
+}
+
+ion-thumbnail img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 📝 INFO TEKS */
+ion-label {
+  margin-left: 12px !important;
+}
+
+.book-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #000;
+  margin: 0 0 2px 0 !important;
+  line-height: 1.2;
+}
+
+.book-subtitle {
+  font-size: 13px !important;
+  color: #666 !important;
+  margin: 0 !important;
+  line-height: 1.2;
+}
+
+/* ❤️ FAVORITE BUTTON - Biru sesuai Book */
+.btn-fav {
+  margin-left: auto;
+  --background: transparent !important;
+  --box-shadow: none !important;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.btn-fav ion-icon {
+  font-size: 18px;
+  color: #0438c8 !important;
+}
+
+/* 🧭 BOTTOM NAVBAR - Identik dengan Book */
+.bottom-nav {
+  position: fixed;
+  bottom: 8px;
+  left: 15px;
+  right: 15px;
+  height: 55px;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item ion-icon {
+  font-size: 22px !important;
+  color: white !important;
+}
+
+.nav-item.active {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.nav-item:not(.active) {
+  opacity: 0.7;
+}
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  
+  /* Tambahkan code di bawah ini */
+  margin-left: -15px;  /* Menarik background ke kiri (sesuai padding-start content) */
+  margin-right: -15px; /* Menarik background ke kanan (sesuai padding-end content) */
+  padding: 15px 20px;  /* Memberi ruang di dalam agar teks tidak mepet pinggir */
+  
+  /* Pastikan tidak ada border radius agar tidak bocor di pojok */
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Opsional: garis halus pemisah */
+  padding-top: calc(var(--ion-safe-area-top) + 40px); 
+  padding-bottom: 15px;
+}
+.sticky-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #4da262;
+  line-height: 1.2;
+  
+  /* --- TAMBAHKAN INI --- */
+  margin-top: -23px;    /* Atur angka ini (misal 10px, 15px, atau 20px) sesuai keinginan */
+  margin-bottom: 5px; /* Jarak bawah teks ke garis/konten */
+  margin-left: 0;
+  margin-right: 0;
+}
+/* Menghilangkan garis bawah di header agar smooth */
+ion-header {
+  &.header-md::after, 
+  &.header-ios::after {
+    display: none !important;
+  }
+}
+
+ion-toolbar {
+  --border-style: none !important;
+  --box-shadow: none !important;
+  border-bottom: none !important;
+}
+/* 🌈 GLOBAL & RESET - Identik dengan Book */
+ion-content {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --background: #ffffff; 
+  --padding-top: 0px; /* Diatur 0 agar sticky header menempel sempurna */
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-bottom: 90px;
+}
+
+/* 🔒 STICKY HEADER - Smooth & Tanpa Garis */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  
+  /* Menghilangkan sela di pinggir agar background putih menutupi seluruh lebar */
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  /* Area aman untuk notch/status bar HP */
+  padding-top: calc(var(--ion-safe-area-top) + 20px); 
+  padding-bottom: 15px;
+
+  /* Menghilangkan garis dan shadow bawaan */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sticky-header h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #4da262;
+  line-height: 1.2;
+  margin: 0; /* Margin bersih agar posisi presisi */
+}
+
+/* Menghilangkan garis halus bawaan komponen Ionic */
+ion-header, ion-toolbar {
+  --border-style: none !important;
+  --box-shadow: none !important;
+  border: none !important;
+}
+
+ion-header::after {
+  display: none !important;
+}
+
+/* 📦 CARD & CONTENT - Ukuran DISAMAKAN dengan Book */
+ion-card {
+  border-radius: 15px;
+  margin: 0 0 12px 0 !important;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: none;
+  overflow: hidden;
+}
+
+/* Menggunakan ion-item agar sama persis dengan layout Book */
+ion-item {
+  --padding-start: 10px;
+  --inner-padding-end: 10px;
+  --background: transparent;
+  --border-style: none;
+  --min-height: 105px; /* KUNCI: Tinggi kartu identik dengan Book */
+  display: flex;
+  align-items: center;
+}
+
+/* 🖼️ THUMBNAIL - 65x85 sesuai standar halaman Book */
+ion-thumbnail {
+  width: 65px !important;
+  height: 85px !important;
+  margin: 10px 0;
+}
+
+ion-thumbnail img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 📝 INFO TEKS */
+ion-label {
+  margin-left: 12px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.book-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #000;
+  margin: 0 0 2px 0 !important;
+  line-height: 1.2;
+  white-space: normal; /* Agar judul panjang bisa wrap */
+}
+
+.book-subtitle {
+  font-size: 13px !important;
+  color: #666 !important;
+  margin: 0 !important;
+  line-height: 1.2;
+}
+
+/* ❤️ FAVORITE BUTTON - Biru Konsisten */
+.btn-fav {
+  margin-left: auto;
+  --background: transparent !important;
+  --box-shadow: none !important;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.btn-fav ion-icon {
+  font-size: 20px;
+  color: #0438c8 !important; /* Biru sesuai permintaan */
+}
+
+/* 🧭 BOTTOM NAVBAR */
+.bottom-nav {
+  position: fixed;
+  bottom: 12px;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  border-radius: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(77, 162, 98, 0.2);
+}
+
+.nav-item ion-icon {
+  font-size: 24px !important;
+  color: white !important;
+}
+
+.nav-item.active {
+  transform: scale(1.1);
+  opacity: 1;
+}

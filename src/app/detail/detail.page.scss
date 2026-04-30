@@ -1,0 +1,73 @@
+.isi-text {
+  white-space: pre-line;
+  text-align: left;
+  line-height: 1.9;
+  font-size: 16px;
+
+  text-indent: 24px;   // 🔥 INI YANG KAMU CARI
+}
+/* JARAK ANTAR PARAGRAF */
+.isi-text p {
+  margin-bottom: 16px;
+}
+
+/* GAMBAR */
+.cover-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* BIAR LEBIH HALUS */
+ion-content {
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+.cerita-text {
+  font-size: 16px;
+  line-height: 1.8; /* 🔥 biar lega */
+  color: #444;
+
+  text-align: justify; /* rata kiri kanan */
+  letter-spacing: 0.3px;
+
+  padding: 15px;
+}
+.cerita-text p {
+  margin-bottom: 18px; /* 🔥 biar gak dempet */
+}
+.cerita-container {
+  background: #ffffff;
+
+  margin: 15px;
+  padding: 15px;
+
+  border-radius: 20px;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.cerita-img {
+  border-radius: 15px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.cerita-text {
+  font-family: 'Poppins', sans-serif;
+}
+.isi-text {
+  white-space: pre-wrap; /* KUNCI: Agar enter/paragraf dari teks kamu tetap muncul */
+  text-align: justify;   /* Agar teks rata kiri-kanan */
+  line-height: 1.6;      /* Agar teks tidak terlalu rapat */
+}
+
+.cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container-isi {
+  padding: 16px;
+}

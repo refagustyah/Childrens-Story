@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- ❌ MENU DIHAPUS -->
+    <ion-title>{{ cerita?.title }}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <img [src]="cerita?.image" class="cover-img" />
+
+  <div style="padding: 16px;">
+    <p class="isi-text">
+      {{ cerita?.content }}
+    </p>
+  </div>
+</ion-content>

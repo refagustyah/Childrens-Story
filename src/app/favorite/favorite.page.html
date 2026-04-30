@@ -1,0 +1,73 @@
+<ion-content>
+
+  <!-- 🔒 STICKY HEADER -->
+  <div class="sticky-header">
+    
+    <!-- TEXT -->
+    <div class="header">
+      <h2>Favorite Stories</h2>
+    </div>
+
+  </div>
+
+  <!-- 📚 LIST CERITA -->
+  <div class="stories">
+    <ion-grid>
+      <ion-row>
+        
+        <ion-col size="12" *ngFor="let item of favorites">
+          <ion-card (click)="openDetail(item)">
+            
+            <ion-item lines="none" button="true">
+
+              <!-- GAMBAR -->
+              <ion-thumbnail slot="start">
+                <img [src]="item.image" />
+              </ion-thumbnail>
+
+              <!-- TEXT -->
+              <ion-label>
+                <h3 class="book-title">{{ item.title }}</h3>
+                <p class="book-subtitle">{{ item.category }}</p>
+              </ion-label>
+              
+              <!-- FAVORITE -->
+              <ion-button 
+                class="btn-fav"
+                fill="clear" 
+                slot="end" 
+                (click)="remove(item); $event.stopPropagation()">
+
+                <ion-icon name="heart"></ion-icon>
+
+              </ion-button>
+
+            </ion-item>
+
+          </ion-card>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
+
+<!-- 🔻 NAVBAR -->
+<ion-footer class="ion-no-border">
+  <div class="bottom-nav">
+
+    <div class="nav-item" (click)="goHome()">
+      <ion-icon name="home"></ion-icon>
+    </div>
+
+    <div class="nav-item" (click)="goBook()">
+      <ion-icon name="book"></ion-icon>
+    </div>
+
+    <div class="nav-item active">
+      <ion-icon name="heart"></ion-icon>
+    </div>
+
+  </div>
+</ion-footer>
