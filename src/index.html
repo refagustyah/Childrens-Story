@@ -7,12 +7,33 @@
 
   <base href="/" />
 
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+  <style>
+  /* Paksa semua elemen jadi putih dan teks hitam */
+  :root, body, html, ion-content, .ion-page {
+    --ion-background-color: #ffffff !important;
+    --ion-text-color: #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Matikan efek dark mode sistem */
+  @media (prefers-color-scheme: dark) {
+    :root, body, html, ion-content, ion-toolbar, ion-header, ion-item, ion-card {
+      --background: #ffffff !important;
+      --color: #000000 !important;
+      --ion-background-color: #ffffff !important;
+      --ion-text-color: #000000 !important;
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+  }
+</style>
 
   <!-- add to homescreen for ios -->
   <meta name="mobile-web-app-capable" content="yes" />

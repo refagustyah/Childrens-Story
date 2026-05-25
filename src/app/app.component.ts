@@ -15,16 +15,23 @@ export class AppComponent {
   }
 
   initializeApp() {
-   // Di dalam initializeApp()
-this.platform.ready().then(() => {
-  console.log('Platform ready!'); // Tambahkan log ini buat ngetes
-  App.addListener('backButton', ({ canGoBack }) => {
-    if (!canGoBack) {
-      App.exitApp();
-    } else {
-      window.history.back();
-    }
-  });
-});
+    // Di dalam initializeApp()
+    this.platform.ready().then(() => {
+      console.log('Platform ready!'); // Tambahkan log ini buat ngetes
+
+      // Sembunyikan Splash Screen secara instan lewat webview bawaan tanpa plugin
+      const target = navigator as any;
+      if (target && target.splashscreen) {
+        target.splashscreen.hide();
+      }
+
+      App.addListener('backButton', ({ canGoBack }) => {
+        if (!canGoBack) {
+          App.exitApp();
+        } else {
+          window.history.back();
+        }
+      });
+    });
   }
 }
